@@ -1,0 +1,59 @@
+@use './../scss/base';
+@use './../scss/mixins';
+
+//making use of nesting
+header{
+    @include mixins.background_theme(#666);
+    margin-bottom: 20px;
+    animation-name: backgroundchange;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+   h1 {
+      transform: translateX(0);
+      animation-name: textMovement;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+   }
+   a,h1 {
+       color: base.$color-white;
+   }
+
+   a{
+    text-decoration-color: brown;
+
+    &:hover {
+        text-decoration:underline;
+    }
+    }
+}
+
+// this creates the animation rules 
+@keyframes backgroundchange {
+    from{ background: #000; }
+    to{background: gray;}
+}
+
+
+@keyframes textMovement {
+    0%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(100px);
+    }
+    40%{
+        transform: translateX(200px);
+    }
+    60%{
+        transform: translateX(400px);
+    }
+    80%{
+        transform: translateX(400px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

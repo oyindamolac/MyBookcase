@@ -1,0 +1,5 @@
+@mixin background_theme($background_color) {
+    background: $background_color;
+    color: #e8dede;
+    padding: 10px 20px;
+}
